@@ -25,7 +25,7 @@ if [ -f ${LOCK} ]; then
 fi
 
 if [ "$DOWNLOAD" = true ]; then
-    curl -L --silent "${URL}" -o "${DEST}"
+    curl -L --progress "${URL}" -o "${DEST}"
     tar -xvf "${DEST}"
     rm -f "${DEST}"
 
