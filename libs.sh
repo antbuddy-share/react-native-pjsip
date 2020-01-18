@@ -25,6 +25,11 @@ if [ -f ${LOCK} ]; then
 fi
 
 if [ "$DOWNLOAD" = true ]; then
+    echo "If following command is too long please run manual!"
+    echo "curl -L --progress \"${URL}\" -o \"${DEST}\""
+    echo "tar -xvf \"${DEST}\""
+    echo "rm -f \"${DEST}\""
+    echo "echo \"${VERSION}\" > ${LOCK}"
     curl -L --progress "${URL}" -o "${DEST}"
     tar -xvf "${DEST}"
     rm -f "${DEST}"
