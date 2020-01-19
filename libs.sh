@@ -26,11 +26,16 @@ fi
 
 if [ "$DOWNLOAD" = true ]; then
     echo "If following command is too long please run manual!"
+    echo "or try download the ${URL} to /tmp/${DEST}"
     echo "curl -L --progress \"${URL}\" -o \"${DEST}\""
     echo "tar -xvf \"${DEST}\""
     echo "rm -f \"${DEST}\""
     echo "echo \"${VERSION}\" > ${LOCK}"
-    curl -L --progress "${URL}" -o "${DEST}"
+    if [[ -f "/tmp/${DEST}" ]]; then
+      cp -rp /tmp/${DEST} ${DEST}
+    else
+      curl -L --progress "${URL}" -o "${DEST}"    
+    fi
     tar -xvf "${DEST}"
     rm -f "${DEST}"
 
