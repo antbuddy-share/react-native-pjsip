@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => package['repository']['url'], :tag => "v#{s.version}" }
   s.source_files  = "ios/RTCPjSip/**/*.{h,m}"
+  s.vendored_frameworks='ios/VialerPJSIP.framework'
 
   s.dependency 'React'
 end
